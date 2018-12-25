@@ -2,7 +2,7 @@
 
 It is a simple Phonebook Application.
 
-#Technology Stack:
+# Technology Stack:
 1.Java SE
 2.Java EE - JSP, Servlet
 3.Spring Web MVC
