@@ -2,3 +2,5 @@ com\pranoy\phonebook\config\SpringRootConfig.class
 com\pranoy\phonebook\config\PhoneBookAppDispatcherServletInitializer.class
 com\pranoy\phonebook\config\SpringWebConfig.class
 com\pranoy\phonebook\controller\TestController.class
+com\pranoy\phonebook\domain\User.class
+com\pranoy\phonebook\domain\Contact.class
