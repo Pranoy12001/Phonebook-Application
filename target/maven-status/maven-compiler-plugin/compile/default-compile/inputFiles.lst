@@ -1,6 +1,10 @@
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\config\SpringWebConfig.java
+D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\UserDAO.java
+D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\BaseDAO.java
+D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\ContactDAO.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\config\PhoneBookAppDispatcherServletInitializer.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\config\SpringRootConfig.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\domain\User.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\controller\TestController.java
+D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\UserDAOImpl.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\domain\Contact.java

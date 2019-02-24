@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Pranoy
  */
 @Configuration
-//@ComponentScan(basePackages = {"com.pranoy"})
+@ComponentScan(basePackages = {"com.pranoy.phonebook.dao"})
 public class SpringRootConfig {
     //To Do :Services, DAO, DataSource, Email Sender and other business layer beans
     
