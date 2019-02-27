@@ -13,9 +13,11 @@ public interface UserDAO {
 
     public void update(User u);
 
+    public void delete(User u);
+
     public void delete(Integer userId);
 
-    public void findById(Integer userId);
+    public User findById(Integer userId);
 
     public List<User> findAll();
 

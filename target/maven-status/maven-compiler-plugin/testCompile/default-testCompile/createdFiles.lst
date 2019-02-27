@@ -1,2 +1,3 @@
+com\pranoy\contactappdb\test\TestDAOUpdate.class
 com\pranoy\contactappdb\test\TestDataSource.class
 com\pranoy\contactappdb\test\TestUserDAOSave.class

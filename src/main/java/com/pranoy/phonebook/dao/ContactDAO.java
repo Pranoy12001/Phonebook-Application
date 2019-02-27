@@ -12,10 +12,12 @@ public interface ContactDAO {
     public void save(Contact c);
 
     public void update(Contact c);
+    
+    public void delete(Contact c);
 
     public void delete(Integer contactId);
 
-    public void findById(Integer contactId);
+    public Contact findById(Integer contactId);
 
     public List<Contact> findAll();
 
