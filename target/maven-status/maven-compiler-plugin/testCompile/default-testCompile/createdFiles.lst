@@ -1,3 +1,14 @@
-com\pranoy\contactappdb\test\TestDAOUpdate.class
+com\pranoy\contactappdb\test\TestUserDAOFindByAll.class
+com\pranoy\contactappdb\test\TestContactDAOSave.class
+com\pranoy\contactappdb\test\TestUserDAOFindByProperty.class
 com\pranoy\contactappdb\test\TestDataSource.class
+com\pranoy\contactappdb\test\TestUserDAOFindById.class
+com\pranoy\contactappdb\test\TestUserServiceResgister.class
+com\pranoy\contactappdb\test\TestContactDAODelete.class
+com\pranoy\contactappdb\test\TestContactDAOFindById.class
+com\pranoy\contactappdb\test\TestContactDAOUpdate.class
+com\pranoy\contactappdb\test\TestDAOUpdate.class
+com\pranoy\contactappdb\test\TestContactDAOFindAll.class
+com\pranoy\contactappdb\test\TestUserDAODelete.class
+com\pranoy\contactappdb\test\TestContactDAOFindByProperty.class
 com\pranoy\contactappdb\test\TestUserDAOSave.class
