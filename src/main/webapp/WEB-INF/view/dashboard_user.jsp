@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>User Login - PhoneBook</title>
+        <title>User Dashboard</title>
         <s:url var="url_css" value="resources/css/style.css"/>
         <link href="$(url_css)" rel="stylesheet" type="text/css"/>
     </head>
@@ -31,7 +31,7 @@
             <tr>
                 <td style="height: 350px;" valign="top">
                     <%-- Content --%>
-                    <h1>User Login</h1>
+                    <h1>User Dashboard</h1>
                     To Do
                 </td>
             </tr>
