@@ -3,6 +3,7 @@ com\pranoy\phonebook\controller\TestController.class
 com\pranoy\phonebook\dao\UserDAOImpl.class
 com\pranoy\phonebook\domain\User.class
 com\pranoy\phonebook\domain\Contact.class
+com\pranoy\phonebook\command\LoginCommand.class
 com\pranoy\phonebook\controller\UserController.class
 com\pranoy\phonebook\config\SpringRootConfig.class
 com\pranoy\phonebook\dao\ContactDAOImpl.class

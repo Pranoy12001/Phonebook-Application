@@ -16,5 +16,6 @@ public class UserBlockedException extends Exception{
      * @param errDesc 
      */
     public UserBlockedException(String errDesc) {
+        super(errDesc);
     }
 }

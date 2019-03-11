@@ -1,6 +1,7 @@
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\rm\ContactRowMapper.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\config\SpringWebConfig.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\rm\UserRowMapper.java
+D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\command\LoginCommand.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\BaseDAO.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\config\PhoneBookAppDispatcherServletInitializer.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\service\UserServiceImpl.java
