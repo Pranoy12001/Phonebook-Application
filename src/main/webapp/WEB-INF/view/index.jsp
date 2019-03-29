@@ -39,6 +39,16 @@
                             ${err}
                         </p>
                     </c:if>
+                    <c:if test="${param.act eq 'lo'}">
+                        <p class="success">
+                            Logged out successfully. Thanks for ussing PhoneBook Application.
+                        </p>
+                    </c:if>
+                    <c:if test="${param.act eq 'reg'}">
+                        <p class="success">
+                            User registered successfully. Please login.
+                        </p>
+                    </c:if>
                     <s:url var="url_login" value="/login"></s:url>
                     <f:form action="${url_login}" modelAttribute="command">
                         <table border="1">

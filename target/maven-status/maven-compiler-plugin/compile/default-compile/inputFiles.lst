@@ -17,5 +17,6 @@ D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\Co
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\service\ContactService.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\UserDAO.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\exception\UserBlockedException.java
+D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\command\UserCommand.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\ContactDAO.java
 D:\Spring Project\PhonebookApplication\src\main\java\com\pranoy\phonebook\dao\UserDAOImpl.java

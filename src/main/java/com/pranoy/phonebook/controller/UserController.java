@@ -1,12 +1,15 @@
 package com.pranoy.phonebook.controller;
 
 import com.pranoy.phonebook.command.LoginCommand;
+import com.pranoy.phonebook.command.UserCommand;
 import com.pranoy.phonebook.domain.User;
 import com.pranoy.phonebook.exception.UserBlockedException;
 import com.pranoy.phonebook.service.UserService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,9 +31,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String handleLogin(@ModelAttribute("command") LoginCommand cmd, Model m) {
+    public String handleLogin(@ModelAttribute("command") LoginCommand cmd, Model m, HttpSession session) {
         try {
             User loggedInUser = userService.login(cmd.getLoginName(), cmd.getPassword());
+            
             if(loggedInUser == null){
                 //Failed
                 //add error message and go back to login form
@@ -40,8 +44,12 @@ public class UserController {
                 //Success
                 //check the role and redirect to the valid dashboard
                 if(loggedInUser.getRole().equals(UserService.ROLE_ADMIN)){
+                    //add user details in session
+                    addUserInSession(loggedInUser, session);
                     return "redirect:admin/dashboard";
                 }else if(loggedInUser.getRole().equals(UserService.ROLE_USER)){
+                    //add user details in session
+                    addUserInSession(loggedInUser, session);
                     return "redirect:user/dashboard";
                 }else{
                     //add error message and go back to login form
@@ -55,6 +63,11 @@ public class UserController {
             return "index"; //JSP - WEB-INF -> view -> index.jsp
         }
     }
+    
+    @RequestMapping(value = {"/logout"})
+    public String logout() {
+        return "redirect:index?act=lo"; //JSP
+    }
 
     @RequestMapping(value = {"/user/dashboard"})
     public String userDashBoard() {
@@ -64,5 +77,33 @@ public class UserController {
     @RequestMapping(value = "/admin/dashboard")
     public String adminDashBoard() {
         return "dashboard_admin"; //JSP - WEB-INF -> view -> dashboard_admin.jsp
+    }
+    
+    @RequestMapping(value = "/reg_form")
+    public String registrationForm(Model m){
+        UserCommand cmd = new UserCommand();
+        m.addAttribute("command", cmd);
+        return "reg_form"; //JSP 
+    }
+    
+    @RequestMapping(value = "/register")
+    public String registrationForm(@ModelAttribute("command") UserCommand cmd,Model m){
+        try {
+            User u = cmd.getUser();
+            u.setRole(UserService.ROLE_USER);
+            u.setLoginStatus(UserService.LOGIN_STATUS_ACTIVE);
+            userService.register(u);
+            return "redirect:index?act=reg";
+        } catch (DuplicateKeyException ex) {
+            ex.printStackTrace();
+            m.addAttribute("err", "Username is already taken. Please select another username");
+            return "reg_form";
+        }
+    }
+    
+    private void addUserInSession(User u, HttpSession session){
+        session.setAttribute("user", u);
+        session.setAttribute("userId", u.getUserId());
+        session.setAttribute("role", u.getRole());
     }
 }
