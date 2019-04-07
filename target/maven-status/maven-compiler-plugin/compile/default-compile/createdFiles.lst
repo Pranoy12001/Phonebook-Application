@@ -10,6 +10,7 @@ com\pranoy\phonebook\config\SpringRootConfig.class
 com\pranoy\phonebook\dao\ContactDAOImpl.class
 com\pranoy\phonebook\dao\BaseDAO.class
 com\pranoy\phonebook\service\ContactService.class
+com\pranoy\phonebook\controller\ContactController.class
 com\pranoy\phonebook\dao\ContactDAO.class
 com\pranoy\phonebook\service\UserService.class
 com\pranoy\phonebook\dao\UserDAO.class

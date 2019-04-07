@@ -12,11 +12,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>User Registration - PhoneBook</title>
-        <s:url var="url_css" value="resources/css/style.css"/>
+        <title>Contact Form - PhoneBook</title>
+        <s:url var="url_css" value="../resources/css/style.css"/>
         <link href="${url_css}" rel="stylesheet" type="text/css"/>
     </head>
-    <s:url var="url_bg" value="resources/images/background.jpg"/>
+    <s:url var="url_bg" value="../resources/images/background.jpg"/>
     <body background="${url_bg}">
         <table border ="1" width="80%" align="center">
             <tr>
@@ -33,40 +33,35 @@
             <tr>
                 <td style="height: 350px;" valign="top">
                     <%-- Content --%>
-                    <h3>User Registration</h3>
+                    <h3>Contact Form</h3>
                     <c:if test="${err != null}">
                         <p class="error">
                             ${err}
                         </p>
                     </c:if>
-                    <s:url var="url_reg" value="/register"></s:url>
-                    <f:form action="${url_reg}" modelAttribute="command">
+                    <s:url var="url_csave" value="/user/save_contact"></s:url>
+                    <f:form action="${url_csave}" modelAttribute="command">
                         <table border="1">
                             <tr>
                                 <td>Name</td>
-                                <td><f:input path="user.name"/></td>
+                                <td><f:input path="name"/></td>
                             </tr>
                             <tr>
                                 <td>Phone</td>
-                                <td><f:input path="user.phone"/></td>
+                                <td><f:input path="phone"/></td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td><f:input path="user.email"/></td>
+                                <td><f:input path="email"/></td>
                             </tr>
                             <tr>
                                 <td>Address</td>
-                                <td><f:textarea path="user.address"/></td>
+                                <td><f:textarea path="address"/></td>
                             </tr>
                             <tr>
-                                <td>Login Name</td>
-                                <td><f:input path="user.loginName"/></td>
+                                <td>Remark</td>
+                                <td><f:textarea path="remarks"/></td>
                             </tr>
-                            <tr>
-                                <td>Password</td>
-                                <td><f:password path="user.password"/></td>
-                            </tr>
-                            
                             <tr>
                                 <td colspan="2" align="right">
                                     <button>
