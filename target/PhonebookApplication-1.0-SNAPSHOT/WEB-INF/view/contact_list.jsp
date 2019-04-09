@@ -39,6 +39,12 @@
                             Contact is successfully added.
                         </p>
                     </c:if>
+                        
+                    <c:if test="${param.act eq 'del'}">
+                        <p class="success">
+                            Contact is successfully deleted.
+                        </p>
+                    </c:if>
                     <table border = "1" cellpadding ="3">
                         <tr>
                             <th>SL</th>
@@ -68,7 +74,10 @@
                                 <td>${c.email}</td>
                                 <td>${c.address}</td>
                                 <td>${c.remarks}</td>
-                                <td>EDIT | DELETE</td>
+                                <s:url var="url_del" value="/user/del_contact">
+                                    <s:param name="cid" value="${c.contactId}"/>
+                                </s:url>
+                                <td>EDIT | <a href="${url_del}">DELETE</a></td>
                             </tr>
                         </c:forEach>
                     </table>

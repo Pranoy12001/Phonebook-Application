@@ -39,6 +39,7 @@
                             ${err}
                         </p>
                     </c:if>
+                        
                     <s:url var="url_csave" value="/user/save_contact"></s:url>
                     <f:form action="${url_csave}" modelAttribute="command">
                         <table border="1">

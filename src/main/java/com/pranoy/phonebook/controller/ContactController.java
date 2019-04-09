@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -41,5 +42,11 @@ public class ContactController {
         Integer userId = (Integer) session.getAttribute("userId");
         m.addAttribute("contactList", contactService.findUserContact(userId));
         return "contact_list"; //JSP form view
+    }
+    
+    @RequestMapping(value = "//user/del_contact")
+    public String deleteConatact(@RequestParam("cid") Integer contactId){
+        contactService.delete(contactId);
+        return "redirect:contact_list?act=del"; //JSP form view
     }
 }
