@@ -34,17 +34,31 @@
                 <td style="height: 350px;" valign="top">
                     <%-- Content --%>
                     <h3>Contact List</h3>
-                    <table border = "1">
+                    <c:if test="${param.act eq 'sv'}">
+                        <p class="success">
+                            Contact is successfully added.
+                        </p>
+                    </c:if>
+                    <table border = "1" cellpadding ="3">
                         <tr>
-                            <td>SL</td>
-                            <td>CID</td>
-                            <td>NAME</td>
-                            <td>PHONE</td>
-                            <td>EMAIL</td>
-                            <td>ADDRESS</td>
-                            <td>REMARK</td>
-                            <td>ACTION</td>
+                            <th>SL</th>
+                            <th>CID</th>
+                            <th>NAME</th>
+                            <th>PHONE</th>
+                            <th>EMAIL</th>
+                            <th>ADDRESS</th>
+                            <th>REMARK</th>
+                            <th>ACTION</th>
                         </tr>
+                        <c:if test="${empty contactList}">
+                            <tr>
+                                <td colspan="8" align="center">
+                                    <p class="error">
+                                        No Records Present.
+                                    </p>
+                                </td>
+                            </tr>
+                        </c:if>
                         <c:forEach var="c" items="${contactList}" varStatus="st">
                             <tr>
                                 <td>${st.count}</td>

@@ -65,7 +65,8 @@ public class UserController {
     }
     
     @RequestMapping(value = {"/logout"})
-    public String logout() {
+    public String logout(HttpSession session) {
+        session.invalidate();
         return "redirect:index?act=lo"; //JSP
     }
 
