@@ -24,16 +24,40 @@ public class ContactController {
         m.addAttribute("command", contact);
         return "contact_form"; //JSP form view
     }
+    
+    @RequestMapping(value = "/user/edit_contact")
+    public String prepareEditForm(Model m, HttpSession session, @RequestParam("cid") Integer contactId){
+        session.setAttribute("aContactId", contactId);
+        Contact c = contactService.findByContactId(contactId);
+        m.addAttribute("command", c);
+        return "contact_form"; //JSP form view
+    }
+    
     @RequestMapping(value = "/user/save_contact")
-    public String saveContact(@ModelAttribute("command") Contact c, Model m, HttpSession session){
-        try {
-           Integer userId = (Integer)session.getAttribute("userId");
-            c.setUserId(userId);
-            contactService.save(c);
-        return "redirect:contact_list?act=sv"; //JSP form view 
-        } catch (Exception e) {
-            m.addAttribute("err", "Failed to save contact");
-            return "contact_form";
+    public String saveOrUpdateContact(@ModelAttribute("command") Contact c, Model m, HttpSession session){
+        Integer contactId = (Integer) session.getAttribute("aContactId");
+        if(contactId == null){
+            //Save Opertaion
+            try {
+                Integer userId = (Integer)session.getAttribute("userId");
+                c.setUserId(userId);
+                contactService.save(c);
+                return "redirect:contact_list?act=sv"; //JSP form view 
+            } catch (Exception e) {
+                m.addAttribute("err", "Failed to save contact");
+                return "contact_form";
+            }
+        }else{
+            //Update Opertaion
+            try {
+                c.setContactId(contactId);
+                contactService.update(c);
+                session.removeAttribute("aContactId");
+                return "redirect:contact_list?act=edit"; //JSP form view 
+             } catch (Exception e) {
+                m.addAttribute("err", "Failed to edit contact");
+                return "contact_form";
+             }
         }
     }
     
@@ -41,6 +65,13 @@ public class ContactController {
     public String contactList(Model m, HttpSession session){
         Integer userId = (Integer) session.getAttribute("userId");
         m.addAttribute("contactList", contactService.findUserContact(userId));
+        return "contact_list"; //JSP form view
+    }
+    
+    @RequestMapping(value = "/user/contact_search")
+    public String contactList(Model m, HttpSession session, @RequestParam("freeText") String freeText){
+        Integer userId = (Integer) session.getAttribute("userId");
+        m.addAttribute("contactList", contactService.findUserContact(userId, freeText));
         return "contact_list"; //JSP form view
     }
     

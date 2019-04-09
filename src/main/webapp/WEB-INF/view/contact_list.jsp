@@ -45,6 +45,19 @@
                             Contact is successfully deleted.
                         </p>
                     </c:if>
+                    
+                    <c:if test="${param.act eq 'edit'}">
+                        <p class="success">
+                            Contact is successfully edited.
+                        </p>
+                    </c:if>
+                        
+                    <form action="<s:url value="/user/contact_search"/>">
+                        <input type="text" name="freeText" placeholder="Enter Text to Search"/>
+                        <button>Find</button>
+                    </form>
+                    <br/>
+                        
                     <table border = "1" cellpadding ="3">
                         <tr>
                             <th>SL</th>
@@ -77,7 +90,10 @@
                                 <s:url var="url_del" value="/user/del_contact">
                                     <s:param name="cid" value="${c.contactId}"/>
                                 </s:url>
-                                <td>EDIT | <a href="${url_del}">DELETE</a></td>
+                                <s:url var="url_edit" value="/user/edit_contact">
+                                    <s:param name="cid" value="${c.contactId}"/>
+                                </s:url>
+                                <td><a href="${url_edit}">EDIT</a> | <a href="${url_del}">DELETE</a></td>
                             </tr>
                         </c:forEach>
                     </table>
