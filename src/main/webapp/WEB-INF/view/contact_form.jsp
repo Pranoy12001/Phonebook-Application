@@ -45,7 +45,7 @@
                         <table border="1">
                             <tr>
                                 <td>Name</td>
-                                <td><f:input path="name" width="200px;"/></td>
+                                <td><f:input path="name" width="100%"/></td>
                             </tr>
                             <tr>
                                 <td>Phone</td>

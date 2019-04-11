@@ -75,9 +75,15 @@ public class ContactController {
         return "contact_list"; //JSP form view
     }
     
-    @RequestMapping(value = "//user/del_contact")
+    @RequestMapping(value = "/user/del_contact")
     public String deleteConatact(@RequestParam("cid") Integer contactId){
         contactService.delete(contactId);
+        return "redirect:contact_list?act=del"; //JSP form view
+    }
+    
+    @RequestMapping(value = "/user/bulk_cdelete")
+    public String deleteBulkConatact(@RequestParam("cid") Integer[] contactIds){
+        contactService.delete(contactIds);
         return "redirect:contact_list?act=del"; //JSP form view
     }
 }
