@@ -11,7 +11,7 @@
     
 <c:if test="${sessionScope.userId != null && sessionScope.role == 1}">
     <%-- Admin is logged in. Admin menu --%>
-    <a href="#">Home</a> | <a href="#">User List</a> | <a href="${url_logout}">Logout</a>
+    <a href="#">Home</a> | <a href="<s:url value="/admin/users"/>">User List</a> | <a href="${url_logout}">Logout</a>
 </c:if>
 
 <c:if test="${sessionScope.userId != null && sessionScope.role == 2}">

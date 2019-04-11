@@ -80,6 +80,12 @@ public class UserController {
         return "dashboard_admin"; //JSP - WEB-INF -> view -> dashboard_admin.jsp
     }
     
+    @RequestMapping(value = "/admin/users")
+    public String getUserList(Model m) {
+        m.addAttribute("userList", userService.getUserList());
+        return "users"; //JSP - WEB-INF -> view -> users.jsp
+    }
+    
     @RequestMapping(value = "/reg_form")
     public String registrationForm(Model m){
         UserCommand cmd = new UserCommand();

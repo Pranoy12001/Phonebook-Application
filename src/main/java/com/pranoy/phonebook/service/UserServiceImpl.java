@@ -48,7 +48,7 @@ public class UserServiceImpl extends BaseDAO implements UserService{
 
     @Override
     public List<User> getUserList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return userDAO.findByProperty("role", UserService.ROLE_USER);
     }
 
     @Override
