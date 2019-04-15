@@ -14,6 +14,25 @@
         <title>User List</title>
         <s:url var="url_css" value="../resources/css/style.css"/>
         <link href="$(url_css)" rel="stylesheet" type="text/css"/>
+        <s:url var="url_jqlib" value="/resources/js/jquery-3.4.0.min.js"/>
+        <script src="${url_jqlib}"></script>
+        <script>
+            function changeStatus(uid, lstatus){
+                console.log(uid+"==="+lstatus);
+                $.ajax({
+                    url: "change_status",
+                    async: false,
+                    data: {userId:uid, loginStatus:lstatus},
+                    success: function (data) {
+                       alert(data); 
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("========"+error);
+                    }
+               
+                });
+            }
+        </script>
     </head>
     <s:url var="url_bg" value="../resources/images/background.jpg"/>
     <body background="${url_bg}">
@@ -62,7 +81,15 @@
                                     <td>${u.email}</td>
                                     <td>${u.address}</td>
                                     <td>${u.loginName}</td>
-                                    <td>${u.loginStatus}</td>
+                                    <td>
+                                        <select id="id_${u.userId}" onchange="changeStatus(${u.userId}, $(this).val())">
+                                            <option value="1">Active</option>
+                                            <option value="2">Block</option>
+                                        </select>
+                                        <script>
+                                            $('#id_${u.userId}').val(${u.loginStatus});
+                                        </script>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </table>
